@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Usuario } from '../models/usuario.model';
 import { environment } from 'src/environments/environment';
-import { catchError, delay, map, switchMap, tap } from 'rxjs/operators';
+import { catchError, switchMap, tap } from 'rxjs/operators';
 import { Token } from '../interfaces/token.interface';
 import { of } from 'rxjs';
 import { UserLogin } from '../interfaces/user.interface';

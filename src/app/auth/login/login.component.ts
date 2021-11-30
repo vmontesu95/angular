@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { NavbarService } from '../../services/navbar.service';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -22,8 +23,8 @@ export class LoginComponent {
   ) {
     // TODO: hacer validaciones una vez se pidan las credenciales de acceso
     this.form = this.fb.group({
-      email   : [ 'vmontesu', [ Validators.required ] ],
-      password: [ '123', [ Validators.required ] ],
+      email   : [ '', [ Validators.required ] ],
+      password: [ '', [ Validators.required ] ],
     });
   }
 
@@ -39,7 +40,7 @@ export class LoginComponent {
     // intentar iniciar sesión
     this.usuarioService.login(this.form.value).subscribe( usuario => {
        if( usuario ) {
-        this.navbarService.cargarMenu(); // cargar el menú en la interfaz
+        //this.navbarService.cargarMenu(); // cargar el menú en la interfaz
         this.router.navigate(['/catalogo']);
        } else {
         console.log("No entró");
