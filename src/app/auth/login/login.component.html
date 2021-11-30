@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="row login">
+        <div class="col-md-6 offset-md-3">
+            <div class="login-card">
+                <h2 class="login-title">Sign in to your account</h2>
+
+                <div [style.display]="(mostrarErrores && form.invalid) ? 'block' : 'none'" >
+                    <p class="text-danger">
+                        We are having trouble processing your request. Please review the highlighted fields and correct
+                        the information. The specific problems found are:
+                    </p> 
+
+                    <ul class="text-danger">
+                        <li *ngIf="esCampoInvalido('email')">
+                            Please provide a valid email address.
+                        </li>
+                        <li *ngIf="esCampoInvalido('password')">
+                            The password field is required.
+                        </li>
+                    </ul>
+                </div>
+
+                <form [formGroup]="form" (ngSubmit)="handleSubmit()" >
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>User*</mat-label>
+                        <input matInput formControlName="email">
+                    </mat-form-field>
+                    
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Password*</mat-label>
+                        <input matInput
+                            type="password" id="password" formControlName="password">
+                    </mat-form-field>
+
+                    <button mat-button mat-raised-button color="warn" type="submit">Sign In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div *ngIf="!url else login">
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<ng-template #login>
+    <app-menu></app-menu>
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+</ng-template>

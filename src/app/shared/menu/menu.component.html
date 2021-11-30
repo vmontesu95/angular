@@ -1,0 +1,30 @@
+<mat-toolbar color="accent">
+  <span class="fill-remaining-space">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <button *ngFor="let item of navbarService.menu" mat-menu-item routerLink="/catalogo" mat-menu-item >
+        <mat-icon>home</mat-icon>
+        <span>{{ item }}</span>
+      </button>
+      <button mat-menu-item (click)="catalog()">
+        <mat-icon>shop</mat-icon>
+        <span>Catálogo</span>
+      </button>
+      <button mat-menu-item (click)="profile()">
+        <mat-icon>people_outline</mat-icon>
+        <span>Perfil</span>
+      </button>
+      <!-- <button mat-menu-item routerLink="/login">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button> -->
+      <button mat-menu-item (click)="logout()" >
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </span>
+  <span class="fill-remaining-space">AXA Seguros</span>
+</mat-toolbar>
