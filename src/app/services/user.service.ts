@@ -61,7 +61,7 @@ export class UserService {
         switchMap( resp => {
           this.guardarToken(resp.accessToken);
 
-          return this.http.post<UserLogin>(`${ APP_URL }/um-mock/v1/users/login`, {'user': user, 'password': password}, this.headers)
+          return this.http.post<UserLogin>(`${ APP_URL }/um-mock/v1/users/login-user`, {'username': user, 'password': password}, this.headers)
             .pipe(
               tap( (resp) => {
                 const { userId, clientId, clientData: { name, lastName, userName } } = resp.userInfo;
